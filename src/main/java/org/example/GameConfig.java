@@ -32,7 +32,7 @@ public class GameConfig {
     }
 
     void showRules(){
-        System.out.println("🎯Guss a Number between " + min + " and "+max);
+        System.out.println("Guss a Number between " + min + " and "+max);
         System.out.println("You Have Maximum  Attempts: " + getMaximumAttempts());
         System.out.println("Hints will be provided after wrong process");
     }
