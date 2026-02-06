@@ -14,3 +14,7 @@ Player Name: dida
 Attempts: 7
 Results: Loss
 
+Player Name: jalal
+Attempts: 7
+Results: Loss
+

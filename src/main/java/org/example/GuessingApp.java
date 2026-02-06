@@ -3,12 +3,13 @@ package org.example;
 
 import java.util.Scanner;
 
+import static org.example.GameController.restartGame;
 import static org.example.GuessValidator.validateGuess;
 import static org.example.HintService.hintGenerate;
 import static org.example.StorageService.*;
 import static org.example.ValidationService.validateNumber;
 
-public class GuissingApp {
+public class GuessingApp {
     public static void main(String[] args) throws Exception {
 
 
@@ -26,6 +27,9 @@ public class GuissingApp {
         int attempts=0;
         int hint=0;
         int win=0;
+
+        do{
+
         do{
                 attempts++;
                 System.out.println("Enter your guess: ");
@@ -57,6 +61,7 @@ public class GuissingApp {
         else if(s.equalsIgnoreCase("No")){
             System.out.println("Thank you for playing!");
         }
+        }while(restartGame(sc));
 
 
     }
