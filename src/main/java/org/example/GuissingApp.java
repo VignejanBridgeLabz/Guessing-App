@@ -4,6 +4,7 @@ package org.example;
 import java.util.Scanner;
 
 import static org.example.GuessValidator.validateGuess;
+import static org.example.HintService.hintGenerate;
 
 public class GuissingApp {
     public static void main(String[] args) {
@@ -15,6 +16,7 @@ public class GuissingApp {
 //        System.out.println("target number "+gameConfig.targetNumber);
 
         int attempts=0;
+        int hint=0;
         do{     attempts++;
                 System.out.println("Enter your guess: ");
                 int guess = sc.nextInt();
@@ -22,6 +24,11 @@ public class GuissingApp {
                 System.out.println(result);
                 if(result.equals("Correct")){
                     break;
+                }
+                else{
+                    hint++;
+
+                    System.out.println(hintGenerate(gameConfig.targetNumber,hint));
                 }
         } while(attempts<gameConfig.getMaximumAttempts());
         if(attempts==7){
