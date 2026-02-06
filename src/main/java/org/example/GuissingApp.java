@@ -5,9 +5,10 @@ import java.util.Scanner;
 
 import static org.example.GuessValidator.validateGuess;
 import static org.example.HintService.hintGenerate;
+import static org.example.ValidationService.validateNumber;
 
 public class GuissingApp {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
         System.out.println("Welcome to Number-Guessing Application");
 
@@ -17,9 +18,10 @@ public class GuissingApp {
 
         int attempts=0;
         int hint=0;
-        do{     attempts++;
+        do{
+                attempts++;
                 System.out.println("Enter your guess: ");
-                int guess = sc.nextInt();
+                int guess=validateNumber(sc);
                 String result=validateGuess(guess,gameConfig.targetNumber);
                 System.out.println(result);
                 if(result.equals("Correct")){
@@ -27,8 +29,9 @@ public class GuissingApp {
                 }
                 else{
                     hint++;
-
-                    System.out.println(hintGenerate(gameConfig.targetNumber,hint));
+                    if(gameConfig.maximumHints > hint){
+                       System.out.println(hintGenerate(gameConfig.targetNumber,hint));
+                    }
                 }
         } while(attempts<gameConfig.getMaximumAttempts());
         if(attempts==7){

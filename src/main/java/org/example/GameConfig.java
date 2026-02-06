@@ -7,6 +7,7 @@ public class GameConfig {
     final int min = 1;
     final int maximumAttempts = 7;
     final int minimumAttempts = 3;
+    final  int maximumHints = 4;
 
     public int getMax() {
         return max;
